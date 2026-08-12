@@ -1,0 +1,12 @@
+.header {
+    background-color: #000;
+}
+
+.header__text {
+    color: #fff;
+    margin: 0;
+}
+
+.header__inner {
+    padding: 20px 5px;
+}

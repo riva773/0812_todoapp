@@ -1,0 +1,100 @@
+.header {
+    background-color: #000;
+    
+}
+
+.header__text{
+    color:#fff;
+    margin: 0;
+}
+
+.header__inner{
+    padding: 20px 5px;
+}
+
+.todo__alert p{
+    margin: 0;
+    padding: 10px 20px;
+    color: #0f5132;
+}
+
+.todo__alert-success {
+    background-color: #d1e7dd;
+}
+
+.todo__form {
+    margin-top:100px;
+    width: 100%;
+}
+
+.todo__form form {
+    display: flex;
+}
+
+.form {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.form__input {
+    width: 450px;
+    height: 40px;
+    border: 1px solid #ccc;
+    margin-right: auto;
+}
+
+.form__create-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 60px;
+    font-size: 16px;
+    border-radius: 5%;
+}
+
+.todo {
+    margin-top :50px;
+}
+
+.todo__text {
+    margin-bottom:10px;
+    margin-left: 12px;
+}
+
+.todo__box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.todo__box:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.todo__name {
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.todo__actions {
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.update__btn {
+    background-color: #0000ff;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size:16px;
+    border-radius: 10%;
+}
+
+.delete__btn {
+    background-color: #ff0000;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 10%;
+}

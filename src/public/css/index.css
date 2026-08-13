@@ -2,11 +2,22 @@
 .todo__alert p{
     margin: 0;
     padding: 10px 20px;
-    color: #0f5132;
 }
 
 .todo__alert-success {
     background-color: #d1e7dd;
+}
+
+.todo__alert-success {
+    color: #0f5132;
+}
+
+.todo__alert-danger {
+    background-color: #f8d7da;
+}
+
+.todo__alert-danger p{
+    color: #842029;
 }
 
 .todo__form {

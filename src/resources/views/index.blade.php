@@ -5,16 +5,27 @@
 @endsection
 
 @section('content')
+@if(session('successMessage'))
 <div class="todo__alert">
     <div class="todo__alert-success">
-        <p>Todoを作成しました</p>
+        <p>{{ session('successMessage') }}</p>
     </div>
 </div>
+@endif
+@if($errors->any())
+<div class="todo__alert">
+    @foreach($errors->all() as $error)
+    <div class="todo__alert-danger">
+        <p>{{ $error }}</p>
+    </div>
+    @endforeach
+</div>
+@endif
 <div class="form">
     <div class="todo__form">
-        <form action="" method="post">
+        <form action="/todos" method="post">
             @csrf
-            <input class="form__input" type="text" name="" id="">
+            <input class="form__input" type="text" name="content" id="">
             <button type="submit" class="form__create-btn">作成</button>
         </form>
     </div>
@@ -22,8 +33,9 @@
     <div class="todo">
         <h2 class="todo__text">Todo</h2>
         <div class="todo__list">
+            @foreach($todos as $todo)
             <div class="todo__box">
-                <p class="todo__name">test</p>
+                <p class="todo__name">{{ $todo->content }}</p>
                 <div class="todo__actions">
                     <div class="update">
                         <form action="" method="post">
@@ -43,27 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="todo__box">
-                <p class="todo__name">test</p>
-                <div class="todo__actions">
-                    <div class="update">
-                        <form action="" method="post">
-                            @csrf
-                            <button type="submit" class="update__btn">
-                                更新
-                            </button>
-                        </form>
-                    </div>
-                    <div class="delete">
-                        <form action="" method="post">
-                            @csrf
-                            <button type="submit" class="delete__btn">
-                                削除
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

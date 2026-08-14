@@ -35,19 +35,27 @@
         <div class="todo__list">
             @foreach($todos as $todo)
             <div class="todo__box">
-                <p class="todo__name">{{ $todo->content }}</p>
                 <div class="todo__actions">
                     <div class="update">
-                        <form action="" method="post">
+                        <form action="/todos/update" method="post" class="update__form">
                             @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="id" , value="{{ $todo->id }}">
+                            <div class="todo__name">
+                                <input type="text"
+                                    class="content__form" name="content" id="content"
+                                    value="{{ $todo->content }}">
+                            </div>
                             <button type="submit" class="update__btn">
                                 更新
                             </button>
                         </form>
                     </div>
                     <div class="delete">
-                        <form action="" method="post">
+                        <form action="/todos/delete" method="post">
                             @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="id" value="{{ $todo->id }}">
                             <button type="submit" class="delete__btn">
                                 削除
                             </button>

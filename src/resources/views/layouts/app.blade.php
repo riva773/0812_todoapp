@@ -13,7 +13,8 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <h1 class="header__text">Todo</h1>
+            <a href="/" class="header__text">Todo</a>
+            <a href="#" class="category__link">カテゴリ一覧</a>
         </div>
     </header>
     <main>

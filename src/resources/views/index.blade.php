@@ -23,15 +23,29 @@
 @endif
 <div class="form">
     <div class="todo__form">
+        <h1>新規作成</h1>
         <form action="/todos" method="post">
             @csrf
-            <input class="form__input" type="text" name="content" id="">
+            <input class="form__input" type="text" name="content">
+            <input type="text" name="category" class="category__input" value="カテゴリ">
             <button type="submit" class="form__create-btn">作成</button>
         </form>
     </div>
 
+    <div class="search__form">
+        <h1>Todo検索</h1>
+        <form action="" method="">
+            @csrf
+            <input class="form__input" type="text" name="content">
+            <input type="text" name="category" class="category__input" value="カテゴリ">
+            <button type="submit" class="form__create-btn">検索</button>
+        </form>
+    </div>
+
+
     <div class="todo">
         <h2 class="todo__text">Todo</h2>
+        <h2 class="category__text">カテゴリ</h2>
         <div class="todo__list">
             @foreach($todos as $todo)
             <div class="todo__box">
@@ -45,6 +59,9 @@
                                 <input type="text"
                                     class="content__form" name="content" id="content"
                                     value="{{ $todo->content }}">
+                            </div>
+                            <div class="category__name">
+                                <input type="text" class="category__form" name="category" id="category" value="{{ $todo->category }}">
                             </div>
                             <button type="submit" class="update__btn">
                                 更新

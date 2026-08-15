@@ -27,10 +27,12 @@
 
 .todo__form form {
     display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .form {
-    width: 700px;
+    width: 800px;
     margin: 0 auto;
 }
 
@@ -38,7 +40,13 @@
     width: 450px;
     height: 40px;
     border: 1px solid #ccc;
-    margin-right: auto;
+}
+
+.category__input {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #ccc;
+    flex: 1;
 }
 
 .form__create-btn {
@@ -47,6 +55,12 @@
     padding: 8px 60px;
     font-size: 16px;
     border-radius: 5%;
+}
+
+.search__form form{
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .todo {

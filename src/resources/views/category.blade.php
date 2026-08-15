@@ -25,9 +25,9 @@
 @endif
 <div class="form">
     <div class="todo__form">
-        <form action="" method="post">
+        <form action="/categories" method="post">
             @csrf
-            <input type="text" name="category" class="category__input">
+            <input type="text" name="name" class="category__input">
             <button type="submit" class="form__create-btn">作成</button>
         </form>
     </div>
@@ -46,10 +46,7 @@
                             <div class="todo__name">
                                 <input type="text"
                                     class="content__form" name="content" id="content"
-                                    value="{{ $category->content }}">
-                            </div>
-                            <div class="category__name">
-                                <input type="text" class="category__form" name="category" id="category" value="{{ $category->category }}">
+                                    value="{{ $category->name }}">
                             </div>
                             <button type="submit" class="update__btn">
                                 更新

@@ -39,13 +39,13 @@
             <div class="todo__box">
                 <div class="todo__actions">
                     <div class="update">
-                        <form action="/todos/update" method="post" class="update__form">
+                        <form action="/categories/update" method="post" class="update__form">
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="id" , value="{{ $category->id }}">
                             <div class="todo__name">
                                 <input type="text"
-                                    class="content__form" name="content" id="content"
+                                    class="content__form" name="name" id="name"
                                     value="{{ $category->name }}">
                             </div>
                             <button type="submit" class="update__btn">
@@ -54,7 +54,7 @@
                         </form>
                     </div>
                     <div class="delete">
-                        <form action="/todos/delete" method="post">
+                        <form action="/categories/delete" method="post">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="id" value="{{ $category->id }}">

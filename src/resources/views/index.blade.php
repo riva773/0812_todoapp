@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
+@section('title','Todo一覧')
+
 @section('content')
 @if(session('successMessage'))
 <div class="todo__alert">

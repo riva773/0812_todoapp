@@ -29,7 +29,13 @@
         <form action="/todos" method="post">
             @csrf
             <input class="form__input" type="text" name="content">
-            <input type="text" name="category" class="category__input" value="カテゴリ">
+            <select name="category_id" id="category_id">
+                <option value="0">カテゴリ</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}
+                </option>
+                @endforeach
+            </select>
             <button type="submit" class="form__create-btn">作成</button>
         </form>
     </div>
@@ -39,32 +45,40 @@
         <form action="" method="">
             @csrf
             <input class="form__input" type="text" name="content">
-            <input type="text" name="category" class="category__input" value="カテゴリ">
+            <select name="category_id" id="category_id">
+                <option value="0">カテゴリ</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}
+                </option>
+                @endforeach
+            </select>
             <button type="submit" class="form__create-btn">検索</button>
         </form>
     </div>
 
 
     <div class="todo">
-        <h2 class="todo__text">Todo</h2>
-        <h2 class="category__text">カテゴリ</h2>
+        <div class="todo__head">
+            <h2 class="todo__text">Todo</h2>
+            <h2 class="category__text">カテゴリ</h2>
+        </div>
         <div class="todo__list">
             @foreach($todos as $todo)
             <div class="todo__box">
-                <div class="todo__actions">
+                <div class="todo__name">
+                    <input type="text"
+                        class="content__form" name="content" id="content"
+                        value="{{ $todo->content }}" form="{{ $todo->id }}update__form">
+                </div>
+                <div class="category__name">
+                    <p class="category__form">{{ $todo->category->name }}</p>
+                </div>
+                <div class="btn">
                     <div class="update">
-                        <form action="/todos/update" method="post" class="update__form">
+                        <form action="/todos/update" method="post" class="update__form" id ="{{$todo->id}}update__form">
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="id" , value="{{ $todo->id }}">
-                            <div class="todo__name">
-                                <input type="text"
-                                    class="content__form" name="content" id="content"
-                                    value="{{ $todo->content }}">
-                            </div>
-                            <div class="category__name">
-                                <input type="text" class="category__form" name="category" id="category" value="{{ $todo->category }}">
-                            </div>
                             <button type="submit" class="update__btn">
                                 更新
                             </button>

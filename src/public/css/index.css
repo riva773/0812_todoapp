@@ -1,3 +1,11 @@
+.todo {
+    display: grid;
+}
+
+.todo__head {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 .todo__alert p{
     margin: 0;
@@ -49,6 +57,10 @@
     flex: 1;
 }
 
+.category__text {
+    text-align: center;
+}
+
 .form__create-btn {
     background-color: #000;
     color: #fff;
@@ -69,11 +81,12 @@
 
 .todo__text {
     margin-bottom:10px;
-    margin-left: 12px;
+    margin-left: 20px;
 }
 
 .todo__box {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -84,7 +97,6 @@
 }
 
 .todo__name {
-    margin-right: auto;
     margin-left: 20px;
 }
 
@@ -95,25 +107,30 @@
     margin-right: 20px;
 }
 
-.update {
-    flex: 1;
-}
-
 .delete {
     flex-shrink: 0;
+    display: flex;
+}
+
+.update {
+    margin-left: auto;
 }
 
 .update__form {
-    display: flex;
     align-items: center;
 }
 
-.todo__name {
-    margin-right: auto;
+.category__name {
+    text-align: center;
 }
 
 .content__form {
     border: none;
+}
+
+.btn {
+    display: flex;
+    gap: 20px;
 }
 
 .update__btn {
@@ -126,11 +143,18 @@
     cursor: pointer;
 }
 
+.delete form {
+    display: flex;
+    align-items: center;
+}
+
 .delete__btn {
+    margin-right: 20px;
     background-color: #ff0000;
     border: none;
     color: #fff;
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 10%;
+    cursor: pointer;
 }

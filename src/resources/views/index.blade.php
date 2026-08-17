@@ -42,9 +42,10 @@
 
     <div class="search__form">
         <h1>Todo検索</h1>
-        <form action="" method="">
+        <form action="/todos/search" method="GET">
             @csrf
-            <input class="form__input" type="text" name="content">
+            <input class="form__input" type="text" name="content" value=" {{ $q ?? '' }}">
+
             <select name="category_id" id="category_id">
                 <option value="0">カテゴリ</option>
                 @foreach($categories as $category)
@@ -75,7 +76,7 @@
                 </div>
                 <div class="btn">
                     <div class="update">
-                        <form action="/todos/update" method="post" class="update__form" id ="{{$todo->id}}update__form">
+                        <form action="/todos/update" method="post" class="update__form" id="{{$todo->id}}update__form">
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="id" , value="{{ $todo->id }}">

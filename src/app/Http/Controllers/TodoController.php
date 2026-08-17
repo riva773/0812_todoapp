@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 
 use Illuminate\Http\Request;
@@ -43,5 +44,13 @@ class TodoController extends Controller
         $todo = Todo::find($request->id);
         $todo->delete();
         return redirect('/')->with('successMessage', 'Todoを削除しました');
+    }
+
+    public function search(Request $request)
+    {
+        $categories = Category::all();
+        $q = $request->content;
+        $todos = Todo::where('content', 'LIKE', '%' . $q . '%')->get();
+        return view('index', compact('todos', 'categories','q'));
     }
 }

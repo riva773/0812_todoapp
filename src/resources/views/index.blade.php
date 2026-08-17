@@ -28,11 +28,12 @@
         <h1>新規作成</h1>
         <form action="/todos" method="post">
             @csrf
-            <input class="form__input" type="text" name="content">
-            <select name="category_id" id="category_id">
-                <option value="0">カテゴリ</option>
+            <input class="form__input" type="text" name="content" value="{{ old('content') }}">
+            <select name="category_id" id="category_id" class="category__input">
+                <option value="0" {{ old('category_id', '0') == '0' ? 'selected' : '' }}>カテゴリ</option>
                 @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}
+                <option value="{{ $category->id }}"
+                    {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}
                 </option>
                 @endforeach
             </select>
@@ -45,7 +46,7 @@
         <form action="/todos/search" method="GET">
             @csrf
             <input class="form__input" type="text" name="content" value="{{ $q ?? '' }}">
-            <select name="category_id" id="category_id">
+            <select name="category_id" id="category_id" class="category__input">
                 <option value="0">カテゴリ</option>
                 @foreach($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}

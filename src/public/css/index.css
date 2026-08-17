@@ -158,3 +158,10 @@
     border-radius: 10%;
     cursor: pointer;
 }
+
+.category__input{
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    appearance: none;
+}

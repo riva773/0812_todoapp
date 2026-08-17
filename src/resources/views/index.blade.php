@@ -44,8 +44,7 @@
         <h1>Todo検索</h1>
         <form action="/todos/search" method="GET">
             @csrf
-            <input class="form__input" type="text" name="content" value=" {{ $q ?? '' }}">
-
+            <input class="form__input" type="text" name="content" value="{{ $q ?? '' }}">
             <select name="category_id" id="category_id">
                 <option value="0">カテゴリ</option>
                 @foreach($categories as $category)

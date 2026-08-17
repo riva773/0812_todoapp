@@ -49,8 +49,16 @@ class TodoController extends Controller
     public function search(Request $request)
     {
         $categories = Category::all();
-        $q = $request->content;
-        $todos = Todo::where('content', 'LIKE', '%' . $q . '%')->get();
-        return view('index', compact('todos', 'categories','q'));
+        $q = $request->content ?? '';
+        $category_q = $request->category_id;
+        $todos = Todo::with('category')->get();
+        if ($q && $category_q) {
+            $todos = Todo::with('category')->where('content', 'LIKE', "%{$q}%")->where('category_id', $category_q)->get();
+        } elseif ($q) {
+            $todos = Todo::with('category')->where('content', 'LIKE', "%{$q}%")->get();
+        } elseif ($category_q) {
+            $todos = Todo::with('category')->where('category_id', $category_q)->get();
+        }
+        return view('index', compact('todos', 'categories', 'q',));
     }
 }

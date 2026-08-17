@@ -51,14 +51,15 @@ class TodoController extends Controller
         $categories = Category::all();
         $q = $request->content ?? '';
         $category_q = $request->category_id;
-        $todos = Todo::with('category')->get();
+        $query = Todo::with('category');
         if ($q && $category_q) {
-            $todos = Todo::with('category')->where('content', 'LIKE', "%{$q}%")->where('category_id', $category_q)->get();
+            $query = Todo::with('category')->where('content', 'LIKE', "%{$q}%")->where('category_id', $category_q);
         } elseif ($q) {
-            $todos = Todo::with('category')->where('content', 'LIKE', "%{$q}%")->get();
+            $query = Todo::with('category')->where('content', 'LIKE', "%{$q}%");
         } elseif ($category_q) {
-            $todos = Todo::with('category')->where('category_id', $category_q)->get();
+            $query = Todo::with('category')->where('category_id', $category_q);
         }
+        $todos = $query->get();
         return view('index', compact('todos', 'categories', 'q',));
     }
 }
